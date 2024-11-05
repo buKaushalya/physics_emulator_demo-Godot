@@ -1,0 +1,944 @@
+[gd_scene load_steps=13 format=3 uid="uid://dm5cleqf1ccuq"]
+
+[ext_resource type="Script" path="res://UIController.gd" id="1_qrkst"]
+[ext_resource type="Script" path="res://Formula1Controller.gd" id="2_ceqk8"]
+[ext_resource type="Script" path="res://Formula2Controller.gd" id="3_whcwk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y7ai"]
+bg_color = Color(1.34766e-06, 0.656533, 0.862247, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2stck"]
+bg_color = Color(0.89779, 0.468184, 0.059087, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvyps"]
+bg_color = Color(0, 0.693564, 0.635019, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2egym"]
+bg_color = Color(0.347817, 0.347817, 0.347817, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_846jt"]
+bg_color = Color(0.280522, 0.514093, 0.837788, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3je4"]
+bg_color = Color(0.5234, 0.509257, 0.512809, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ex0d3"]
+bg_color = Color(0.898039, 0.466667, 0.0588235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa7ew"]
+bg_color = Color(0.304326, 0.620342, 0.913184, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_383as"]
+bg_color = Color(0.951655, 0.377782, 0.472338, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qrkst")
+
+[node name="LblSpeedTag" type="Label" parent="."]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 68.0
+offset_bottom = 54.0
+text = "Speed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblSpeed" type="Label" parent="LblSpeedTag"]
+layout_mode = 1
+offset_left = 58.0
+offset_top = -2.0
+offset_right = 123.0
+offset_bottom = 33.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y7ai")
+text = "0 ms"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainPanel" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BtnHelp" type="Button" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 974.0
+offset_top = 548.0
+offset_right = 1079.0
+offset_bottom = 580.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_2stck")
+text = "Help"
+
+[node name="BtnStart" type="Button" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 575.0
+offset_top = 483.0
+offset_right = 680.0
+offset_bottom = 515.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvyps")
+text = "Start"
+
+[node name="LblTitle" type="Label" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 41.0
+offset_top = 87.0
+offset_right = 1071.0
+offset_bottom = 236.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "The road has been broken. You need to jump the car to get to the other side. The minimum safe speed you need to close the gap is 15ms (More than this speed will wreck the car) and the car has the constant acceleration of 10m/s². First you need to get enough distance to get that speed. find the correct distance and jump your car to reach the gap."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Distance" type="Control" parent="MainPanel"]
+anchors_preset = 0
+offset_left = 22.0
+offset_right = 62.0
+offset_bottom = 40.0
+
+[node name="LblDistance" type="Label" parent="MainPanel/Distance"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 368.0
+offset_top = 484.0
+offset_right = 444.0
+offset_bottom = 514.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Distance: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtDistance" type="TextEdit" parent="MainPanel/Distance"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 455.0
+offset_top = 481.0
+offset_right = 513.0
+offset_bottom = 519.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "00"
+
+[node name="LblDistance2" type="Label" parent="MainPanel/Distance"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 516.0
+offset_top = 484.0
+offset_right = 540.0
+offset_bottom = 514.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "m "
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -605.0
+offset_top = -323.0
+offset_bottom = 323.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2egym")
+
+[node name="BtnFromula1" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.5
+offset_top = 170.0
+offset_right = 200.5
+offset_bottom = 221.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_846jt")
+text = "v = u + at"
+
+[node name="BtnFromula2" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -205.5
+offset_top = 275.0
+offset_right = 199.5
+offset_bottom = 326.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_846jt")
+text = "d = ut + (1/2)at^2"
+
+[node name="BtnClose" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -59.0
+offset_right = -463.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3je4")
+text = "Close"
+
+[node name="PanelF1" type="Panel" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -605.0
+offset_top = -323.0
+offset_bottom = 323.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2egym")
+script = ExtResource("2_ceqk8")
+
+[node name="BtnBackF1" type="Button" parent="Panel/PanelF1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -59.0
+offset_right = -463.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ex0d3")
+text = "Back"
+
+[node name="LblTitle" type="Label" parent="Panel/PanelF1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.5
+offset_top = 19.0
+offset_right = 301.5
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Formula : v = u + at"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblFormula" type="Label" parent="Panel/PanelF1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -283.5
+offset_top = 96.0
+offset_right = 283.5
+offset_bottom = 223.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "v = u + at"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FormulaVars" type="Control" parent="Panel/PanelF1"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LblV" type="Label" parent="Panel/PanelF1/FormulaVars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 120.0
+offset_top = 235.0
+offset_right = 143.0
+offset_bottom = 274.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "v"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lbl=" type="Label" parent="Panel/PanelF1/FormulaVars/LblV"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.5
+offset_top = -1.0
+offset_right = 43.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtV" type="TextEdit" parent="Panel/PanelF1/FormulaVars/LblV"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+
+[node name="LblU" type="Label" parent="Panel/PanelF1/FormulaVars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 120.0
+offset_top = 302.0
+offset_right = 143.0
+offset_bottom = 341.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "u"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lbl=" type="Label" parent="Panel/PanelF1/FormulaVars/LblU"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.5
+offset_top = -1.0
+offset_right = 43.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtU" type="TextEdit" parent="Panel/PanelF1/FormulaVars/LblU"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+
+[node name="LblA" type="Label" parent="Panel/PanelF1/FormulaVars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 309.0
+offset_top = 235.0
+offset_right = 332.0
+offset_bottom = 274.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lbl=" type="Label" parent="Panel/PanelF1/FormulaVars/LblA"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.5
+offset_top = -1.0
+offset_right = 43.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtA" type="TextEdit" parent="Panel/PanelF1/FormulaVars/LblA"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+
+[node name="LblT" type="Label" parent="Panel/PanelF1/FormulaVars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 309.0
+offset_top = 302.0
+offset_right = 332.0
+offset_bottom = 341.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "t"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lbl=" type="Label" parent="Panel/PanelF1/FormulaVars/LblT"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.5
+offset_top = -1.0
+offset_right = 43.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtT" type="TextEdit" parent="Panel/PanelF1/FormulaVars/LblT"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+
+[node name="LblFind" type="Label" parent="Panel/PanelF1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_top = 425.0
+offset_right = -106.0
+offset_bottom = 464.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Find"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Panel/PanelF1/LblFind"]
+layout_mode = 0
+offset_left = 75.5
+offset_top = -3.0
+offset_right = 164.5
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 28
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "v"
+popup/item_1/text = "u"
+popup/item_1/id = 1
+popup/item_2/text = "a"
+popup/item_2/id = 2
+popup/item_3/text = "t"
+popup/item_3/id = 3
+
+[node name="BtnProcessF1" type="Button" parent="Panel/PanelF1/LblFind"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = -42.0
+offset_right = 265.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_xa7ew")
+text = "Process"
+
+[node name="PanelF2" type="Panel" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -605.0
+offset_top = -323.0
+offset_bottom = 323.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2egym")
+script = ExtResource("3_whcwk")
+
+[node name="BtnBackF2" type="Button" parent="Panel/PanelF2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -59.0
+offset_right = -463.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ex0d3")
+text = "Back"
+
+[node name="LblTitle" type="Label" parent="Panel/PanelF2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.5
+offset_top = 19.0
+offset_right = 301.5
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Formula : d = ut + (1/2)at^2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblFormula" type="Label" parent="Panel/PanelF2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -283.5
+offset_top = 96.0
+offset_right = 283.5
+offset_bottom = 223.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "d = ut + (1/2)at^2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FormulaVars" type="Control" parent="Panel/PanelF2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LblD" type="Label" parent="Panel/PanelF2/FormulaVars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 120.0
+offset_top = 235.0
+offset_right = 143.0
+offset_bottom = 274.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "d"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lbl=" type="Label" parent="Panel/PanelF2/FormulaVars/LblD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.5
+offset_top = -1.0
+offset_right = 43.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtD" type="TextEdit" parent="Panel/PanelF2/FormulaVars/LblD"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+
+[node name="LblU" type="Label" parent="Panel/PanelF2/FormulaVars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 120.0
+offset_top = 302.0
+offset_right = 143.0
+offset_bottom = 341.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "u"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lbl=" type="Label" parent="Panel/PanelF2/FormulaVars/LblU"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.5
+offset_top = -1.0
+offset_right = 43.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtU" type="TextEdit" parent="Panel/PanelF2/FormulaVars/LblU"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+
+[node name="LblA" type="Label" parent="Panel/PanelF2/FormulaVars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 309.0
+offset_top = 235.0
+offset_right = 332.0
+offset_bottom = 274.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lbl=" type="Label" parent="Panel/PanelF2/FormulaVars/LblA"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.5
+offset_top = -1.0
+offset_right = 43.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtA" type="TextEdit" parent="Panel/PanelF2/FormulaVars/LblA"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+
+[node name="LblT" type="Label" parent="Panel/PanelF2/FormulaVars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 309.0
+offset_top = 302.0
+offset_right = 332.0
+offset_bottom = 341.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "t"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lbl=" type="Label" parent="Panel/PanelF2/FormulaVars/LblT"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.5
+offset_top = -1.0
+offset_right = 43.5
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TxtT" type="TextEdit" parent="Panel/PanelF2/FormulaVars/LblT"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+
+[node name="LblFind" type="Label" parent="Panel/PanelF2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_top = 425.0
+offset_right = -106.0
+offset_bottom = 464.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Find"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Panel/PanelF2/LblFind"]
+layout_mode = 0
+offset_left = 75.5
+offset_top = -3.0
+offset_right = 164.5
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 28
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "d"
+popup/item_1/text = "u"
+popup/item_1/id = 1
+popup/item_2/text = "a"
+popup/item_2/id = 2
+popup/item_3/text = "t"
+popup/item_3/id = 3
+
+[node name="BtnProcessF2" type="Button" parent="Panel/PanelF2/LblFind"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = -42.0
+offset_right = 265.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_xa7ew")
+text = "Process"
+
+[node name="LblSuccess" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -45.0
+offset_right = 201.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "You Crossed Successfully"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblFail" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -45.0
+offset_right = 201.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.0196078, 0.0156863, 1)
+theme_override_font_sizes/font_size = 30
+text = "Failed to Cross!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnReStart" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -282.0
+offset_right = 54.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_383as")
+text = "Re-start"
+
+[connection signal="pressed" from="MainPanel/BtnHelp" to="." method="_on_btn_help_pressed"]
+[connection signal="pressed" from="MainPanel/BtnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="Panel/BtnFromula1" to="." method="_on_btn_fromula_1_pressed"]
+[connection signal="pressed" from="Panel/BtnFromula2" to="." method="_on_btn_fromula_2_pressed"]
+[connection signal="pressed" from="Panel/BtnClose" to="." method="_on_btn_close_pressed"]
+[connection signal="pressed" from="Panel/PanelF1/BtnBackF1" to="Panel/PanelF1" method="_on_btn_back_f_1_pressed"]
+[connection signal="text_changed" from="Panel/PanelF1/FormulaVars/LblV/TxtV" to="Panel/PanelF1" method="_on_txt_v_text_changed"]
+[connection signal="text_changed" from="Panel/PanelF1/FormulaVars/LblU/TxtU" to="Panel/PanelF1" method="_on_txt_u_text_changed"]
+[connection signal="text_changed" from="Panel/PanelF1/FormulaVars/LblA/TxtA" to="Panel/PanelF1" method="_on_txt_a_text_changed"]
+[connection signal="text_changed" from="Panel/PanelF1/FormulaVars/LblT/TxtT" to="Panel/PanelF1" method="_on_txt_t_text_changed"]
+[connection signal="pressed" from="Panel/PanelF1/LblFind/BtnProcessF1" to="Panel/PanelF1" method="_on_btn_process_f_1_pressed"]
+[connection signal="pressed" from="Panel/PanelF2/BtnBackF2" to="Panel/PanelF2" method="_on_btn_back_f_2_pressed"]
+[connection signal="text_changed" from="Panel/PanelF2/FormulaVars/LblD/TxtD" to="Panel/PanelF2" method="_on_txt_d_text_changed"]
+[connection signal="text_changed" from="Panel/PanelF2/FormulaVars/LblU/TxtU" to="Panel/PanelF2" method="_on_txt_u_text_changed"]
+[connection signal="text_changed" from="Panel/PanelF2/FormulaVars/LblA/TxtA" to="Panel/PanelF2" method="_on_txt_a_text_changed"]
+[connection signal="text_changed" from="Panel/PanelF2/FormulaVars/LblT/TxtT" to="Panel/PanelF2" method="_on_txt_t_text_changed"]
+[connection signal="pressed" from="Panel/PanelF2/LblFind/BtnProcessF2" to="Panel/PanelF2" method="_on_btn_process_f_2_pressed"]
+[connection signal="pressed" from="BtnReStart" to="." method="_on_btn_re_start_pressed"]
