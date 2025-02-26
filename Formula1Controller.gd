@@ -6,7 +6,7 @@ extends Panel
 @onready var txt_a: TextEdit = $FormulaVars/LblA/TxtA
 @onready var txt_t: TextEdit = $FormulaVars/LblT/TxtT
 @onready var option_button: OptionButton = $LblFind/OptionButton
-
+@onready var formula_selection_view = get_node("/root/Node3D/Control/Panel")
 var v: float = 0.0
 var u: float = 0.0
 var a: float = 0.0
@@ -56,7 +56,12 @@ func _set_formula_text() -> void:
 	var txtT = "t" if txt_t.text == "?" else str(t)
 	lbl_formula.text = txtV + " = " + txtU + " + " + txtA + " * " + txtT
 
-
+#used to capture when user select find var and send back to calculate points
+func _on_option_button_item_selected(index: int) -> void:
+	var option = option_button.get_item_text(index)
+	print("sdsdsd")
+	formula_selection_view.call("check_formula_vars","Formula1",option)
+	
 func _on_btn_process_f_1_pressed() -> void:
 	var result: float = 0.0
 	var unit = ""
@@ -80,5 +85,7 @@ func _on_btn_process_f_1_pressed() -> void:
 			print("Invalid option")
 			
 	print(result)
+	#award points or deduct based on answer
+	formula_selection_view.call("_check_answer","Formula1",option,result)
 	lbl_formula.text = "Value of '" + option + "' = " + str(result) + unit 
 		

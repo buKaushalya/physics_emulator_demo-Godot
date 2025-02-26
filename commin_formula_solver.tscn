@@ -1,35 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dm5cleqf1ccuq"]
+[gd_scene load_steps=16 format=3 uid="uid://die1c4odnw8rb"]
 
-[ext_resource type="Script" path="res://UIController.gd" id="1_qrkst"]
-[ext_resource type="Script" path="res://Formula1Controller.gd" id="2_ceqk8"]
-[ext_resource type="Script" path="res://pointSystem.gd" id="2_o3qdt"]
-[ext_resource type="Script" path="res://Formula2Controller.gd" id="3_whcwk"]
-[ext_resource type="Script" path="res://Formula3Controller.gd" id="4_3caen"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y7ai"]
-bg_color = Color(1.34766e-06, 0.656533, 0.862247, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2stck"]
-bg_color = Color(0.89779, 0.468184, 0.059087, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvyps"]
-bg_color = Color(0, 0.693564, 0.635019, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[ext_resource type="Script" path="res://UIController.gd" id="1_siijo"]
+[ext_resource type="Script" path="res://pointSystem.gd" id="2_ly6w7"]
+[ext_resource type="Script" path="res://Formula1Controller.gd" id="3_ojt7m"]
+[ext_resource type="Script" path="res://Formula2Controller.gd" id="4_n06fx"]
+[ext_resource type="Script" path="res://Formula3Controller.gd" id="5_lmdg7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2egym"]
 bg_color = Color(0.347817, 0.347817, 0.347817, 1)
@@ -81,19 +56,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48w8b"]
-bg_color = Color(6.73831e-07, 0.72586, 0.186, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -101,152 +63,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qrkst")
-
-[node name="LblSpeedTag" type="Label" parent="."]
-layout_mode = 1
-offset_left = 12.0
-offset_top = 24.0
-offset_right = 68.0
-offset_bottom = 54.0
-text = "Speed:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LblSpeed" type="Label" parent="LblSpeedTag"]
-layout_mode = 1
-offset_left = 58.0
-offset_top = -2.0
-offset_right = 123.0
-offset_bottom = 33.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_1y7ai")
-text = "0 ms"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MainPanel" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BtnHelp" type="Button" parent="MainPanel"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 974.0
-offset_top = 548.0
-offset_right = 1079.0
-offset_bottom = 580.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
-theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
-theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
-theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_2stck")
-text = "Help"
-
-[node name="BtnStart" type="Button" parent="MainPanel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 575.0
-offset_top = 483.0
-offset_right = 680.0
-offset_bottom = 515.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
-theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
-theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
-theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_qvyps")
-text = "Start"
-
-[node name="LblTitle" type="Label" parent="MainPanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 41.0
-offset_top = 87.0
-offset_right = 1071.0
-offset_bottom = 236.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 22
-text = "The road has been broken. You need to jump the car to get to the other side. The minimum safe speed you need to close the gap is 15ms (More than this speed will wreck the car) and the car has the constant acceleration of 10m/s². First you need to get enough distance to get that speed. find the correct distance and jump your car to reach the gap."
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Distance" type="Control" parent="MainPanel"]
-anchors_preset = 0
-offset_left = 22.0
-offset_right = 62.0
-offset_bottom = 40.0
-
-[node name="LblDistance" type="Label" parent="MainPanel/Distance"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 368.0
-offset_top = 484.0
-offset_right = 444.0
-offset_bottom = 514.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Distance: "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TxtDistance" type="TextEdit" parent="MainPanel/Distance"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 455.0
-offset_top = 481.0
-offset_right = 513.0
-offset_bottom = 519.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 18
-text = "00"
-
-[node name="LblDistance2" type="Label" parent="MainPanel/Distance"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 516.0
-offset_top = 484.0
-offset_right = 540.0
-offset_bottom = 514.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "m "
-vertical_alignment = 1
+script = ExtResource("1_siijo")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -259,7 +78,7 @@ offset_bottom = 323.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2egym")
-script = ExtResource("2_o3qdt")
+script = ExtResource("2_ly6w7")
 
 [node name="BtnFromula1" type="Button" parent="Panel"]
 layout_mode = 1
@@ -358,7 +177,7 @@ offset_bottom = 323.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2egym")
-script = ExtResource("2_ceqk8")
+script = ExtResource("3_ojt7m")
 
 [node name="BtnBackF1" type="Button" parent="Panel/PanelF1"]
 layout_mode = 1
@@ -389,9 +208,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -301.5
-offset_top = 19.0
+offset_top = 133.0
 offset_right = 301.5
-offset_bottom = 74.0
+offset_bottom = 188.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Formula : v = u + at"
@@ -403,10 +222,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -283.5
-offset_top = 96.0
-offset_right = 283.5
-offset_bottom = 223.0
+offset_left = -280.5
+offset_top = 175.0
+offset_right = 286.5
+offset_bottom = 302.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "v = u + at"
@@ -423,10 +242,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 120.0
-offset_top = 235.0
-offset_right = 143.0
-offset_bottom = 274.0
+offset_left = 123.0
+offset_top = 314.0
+offset_right = 146.0
+offset_bottom = 353.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "v"
@@ -462,10 +281,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 120.0
-offset_top = 302.0
-offset_right = 143.0
-offset_bottom = 341.0
+offset_left = 123.0
+offset_top = 381.0
+offset_right = 146.0
+offset_bottom = 420.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "u"
@@ -501,10 +320,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 309.0
-offset_top = 235.0
-offset_right = 332.0
-offset_bottom = 274.0
+offset_left = 312.0
+offset_top = 314.0
+offset_right = 335.0
+offset_bottom = 353.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "a"
@@ -540,10 +359,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 309.0
-offset_top = 302.0
-offset_right = 332.0
-offset_bottom = 341.0
+offset_left = 312.0
+offset_top = 381.0
+offset_right = 335.0
+offset_bottom = 420.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "t"
@@ -579,10 +398,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -164.0
-offset_top = 425.0
-offset_right = -106.0
-offset_bottom = 464.0
+offset_left = -161.0
+offset_top = 504.0
+offset_right = -103.0
+offset_bottom = 543.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "Find"
@@ -643,7 +462,7 @@ offset_bottom = 323.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2egym")
-script = ExtResource("3_whcwk")
+script = ExtResource("4_n06fx")
 
 [node name="BtnBackF2" type="Button" parent="Panel/PanelF2"]
 layout_mode = 1
@@ -673,10 +492,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -301.5
-offset_top = 19.0
-offset_right = 301.5
-offset_bottom = 74.0
+offset_left = -296.5
+offset_top = 150.0
+offset_right = 306.5
+offset_bottom = 205.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Formula : d = ut + (1/2)at^2"
@@ -688,10 +507,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -283.5
-offset_top = 96.0
-offset_right = 283.5
-offset_bottom = 223.0
+offset_left = -285.5
+offset_top = 182.0
+offset_right = 281.5
+offset_bottom = 309.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "d = ut + (1/2)at^2"
@@ -708,10 +527,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 120.0
-offset_top = 235.0
-offset_right = 143.0
-offset_bottom = 274.0
+offset_left = 118.0
+offset_top = 321.0
+offset_right = 141.0
+offset_bottom = 360.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "d"
@@ -747,10 +566,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 120.0
-offset_top = 302.0
-offset_right = 143.0
-offset_bottom = 341.0
+offset_left = 118.0
+offset_top = 388.0
+offset_right = 141.0
+offset_bottom = 427.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "u"
@@ -786,10 +605,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 309.0
-offset_top = 235.0
-offset_right = 332.0
-offset_bottom = 274.0
+offset_left = 307.0
+offset_top = 321.0
+offset_right = 330.0
+offset_bottom = 360.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "a"
@@ -825,10 +644,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 309.0
-offset_top = 302.0
-offset_right = 332.0
-offset_bottom = 341.0
+offset_left = 307.0
+offset_top = 388.0
+offset_right = 330.0
+offset_bottom = 427.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "t"
@@ -864,10 +683,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -164.0
-offset_top = 425.0
-offset_right = -106.0
-offset_bottom = 464.0
+offset_left = -166.0
+offset_top = 511.0
+offset_right = -108.0
+offset_bottom = 550.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "Find"
@@ -928,7 +747,7 @@ offset_bottom = 323.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sky2r")
-script = ExtResource("4_3caen")
+script = ExtResource("5_lmdg7")
 
 [node name="BtnBackF3" type="Button" parent="Panel/PanelF3"]
 layout_mode = 1
@@ -958,10 +777,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -301.5
-offset_top = 68.0
-offset_right = 301.5
-offset_bottom = 123.0
+offset_left = -299.5
+offset_top = 120.0
+offset_right = 303.5
+offset_bottom = 175.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Formula : v*2 = u*2 + 2as"
@@ -974,9 +793,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -283.5
-offset_top = 96.0
+offset_top = 170.0
 offset_right = 283.5
-offset_bottom = 223.0
+offset_bottom = 297.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "v^2 = u^2 + 2ad"
@@ -994,9 +813,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 120.0
-offset_top = 235.0
+offset_top = 309.0
 offset_right = 143.0
-offset_bottom = 274.0
+offset_bottom = 348.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "d"
@@ -1033,9 +852,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 120.0
-offset_top = 302.0
+offset_top = 376.0
 offset_right = 143.0
-offset_bottom = 341.0
+offset_bottom = 415.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "u"
@@ -1072,9 +891,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 309.0
-offset_top = 235.0
+offset_top = 309.0
 offset_right = 332.0
-offset_bottom = 274.0
+offset_bottom = 348.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "a"
@@ -1111,9 +930,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 309.0
-offset_top = 302.0
+offset_top = 376.0
 offset_right = 332.0
-offset_bottom = 341.0
+offset_bottom = 415.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "v"
@@ -1150,9 +969,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -164.0
-offset_top = 425.0
+offset_top = 499.0
 offset_right = -106.0
-offset_bottom = 464.0
+offset_bottom = 538.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "Find"
@@ -1221,46 +1040,6 @@ offset_bottom = 59.0
 theme_override_colors/font_color = Color(0.752941, 1, 0.0196078, 1)
 theme_override_font_sizes/font_size = 32
 
-[node name="LblSuccess" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -203.0
-offset_top = -45.0
-offset_right = 201.0
-offset_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 30
-text = "You Crossed Successfully"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LblFail" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -203.0
-offset_top = -45.0
-offset_right = 201.0
-offset_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.0196078, 0.0156863, 1)
-theme_override_font_sizes/font_size = 30
-text = "Failed to Cross!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="BtnReStart" type="Button" parent="."]
 visible = false
 layout_mode = 1
@@ -1269,10 +1048,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -51.0
-offset_top = -282.0
-offset_right = 54.0
-offset_bottom = -250.0
+offset_left = -108.0
+offset_top = -221.0
+offset_right = -3.0
+offset_bottom = -189.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -1285,20 +1064,26 @@ theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_383as")
 text = "Re-start"
 
-[node name="BtnNextLevel" type="Button" parent="."]
+[node name="LblFail" type="Label" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 1148.0
-offset_top = 368.0
-offset_right = 1256.0
-offset_bottom = 403.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_48w8b")
-text = "Next Level"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 290.0
+offset_top = 197.0
+offset_right = 822.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.0196078, 0.0156863, 1)
+theme_override_font_sizes/font_size = 30
+text = "💥 Too fast! You overshot the target."
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="MainPanel/BtnHelp" to="." method="_on_btn_help_pressed"]
-[connection signal="pressed" from="MainPanel/BtnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="Panel/BtnFromula1" to="." method="_on_btn_fromula_1_pressed"]
 [connection signal="pressed" from="Panel/BtnFromula2" to="." method="_on_btn_fromula_2_pressed"]
 [connection signal="pressed" from="Panel/BtnFromula3" to="." method="_on_btn_fromula_3_pressed"]
@@ -1308,12 +1093,14 @@ text = "Next Level"
 [connection signal="text_changed" from="Panel/PanelF1/FormulaVars/LblU/TxtU" to="Panel/PanelF1" method="_on_txt_u_text_changed"]
 [connection signal="text_changed" from="Panel/PanelF1/FormulaVars/LblA/TxtA" to="Panel/PanelF1" method="_on_txt_a_text_changed"]
 [connection signal="text_changed" from="Panel/PanelF1/FormulaVars/LblT/TxtT" to="Panel/PanelF1" method="_on_txt_t_text_changed"]
+[connection signal="item_selected" from="Panel/PanelF1/LblFind/OptionButton" to="Panel/PanelF1" method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Panel/PanelF1/LblFind/BtnProcessF1" to="Panel/PanelF1" method="_on_btn_process_f_1_pressed"]
 [connection signal="pressed" from="Panel/PanelF2/BtnBackF2" to="Panel/PanelF2" method="_on_btn_back_f_2_pressed"]
 [connection signal="text_changed" from="Panel/PanelF2/FormulaVars/LblD/TxtD" to="Panel/PanelF2" method="_on_txt_d_text_changed"]
 [connection signal="text_changed" from="Panel/PanelF2/FormulaVars/LblU/TxtU" to="Panel/PanelF2" method="_on_txt_u_text_changed"]
 [connection signal="text_changed" from="Panel/PanelF2/FormulaVars/LblA/TxtA" to="Panel/PanelF2" method="_on_txt_a_text_changed"]
 [connection signal="text_changed" from="Panel/PanelF2/FormulaVars/LblT/TxtT" to="Panel/PanelF2" method="_on_txt_t_text_changed"]
+[connection signal="item_selected" from="Panel/PanelF2/LblFind/OptionButton" to="Panel/PanelF2" method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Panel/PanelF2/LblFind/BtnProcessF2" to="Panel/PanelF2" method="_on_btn_process_f_2_pressed"]
 [connection signal="pressed" from="Panel/PanelF3/BtnBackF3" to="Panel/PanelF3" method="_on_btn_back_f_3_pressed"]
 [connection signal="text_changed" from="Panel/PanelF3/FormulaVars/LblD/TxtD" to="Panel/PanelF3" method="_on_txt_d_text_changed"]
@@ -1324,4 +1111,3 @@ text = "Next Level"
 [connection signal="pressed" from="Panel/PanelF3/LblFind/BtnProcessF3" to="Panel/PanelF3" method="_on_btn_process_f_3_pressed"]
 [connection signal="timeout" from="Panel/Timer" to="Panel" method="_on_timer_timeout"]
 [connection signal="pressed" from="BtnReStart" to="." method="_on_btn_re_start_pressed"]
-[connection signal="pressed" from="BtnNextLevel" to="." method="_on_btn_next_level_pressed"]

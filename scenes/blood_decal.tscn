@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ehxc7jkovxop"]
+
+[ext_resource type="Texture2D" uid="uid://duol5v4175i6l" path="res://Level2/Level2Textures/bloodSplash.png" id="1_apggk"]
+
+[node name="blood_decal" type="Decal"]
+texture_albedo = ExtResource("1_apggk")

@@ -1,0 +1,411 @@
+[gd_scene load_steps=28 format=3 uid="uid://cqhfla4k5eulw"]
+
+[ext_resource type="Material" uid="uid://cm50us33b1er5" path="res://prototype_texture_orange.tres" id="1_g0ljp"]
+[ext_resource type="Material" uid="uid://cx3udg6o3ycsm" path="res://prototype_texture.tres" id="2_io2um"]
+[ext_resource type="PackedScene" uid="uid://vnbsootu3yia" path="res://scenes/car.tscn" id="5_karuh"]
+[ext_resource type="PackedScene" uid="uid://bnl36nep67xet" path="res://Level2/Level2Models/Pedestrian/pedestrian_3d.tscn" id="6_cee65"]
+[ext_resource type="Script" path="res://Level2/Level2Scripts/level2car.gd" id="6_pny53"]
+[ext_resource type="Script" path="res://Level2/Level2Scripts/level2UIController.gd" id="7_4o213"]
+[ext_resource type="Script" path="res://Level2/Level2Scripts/character_body_3d.gd" id="7_btdft"]
+[ext_resource type="PackedScene" uid="uid://nyafhbsd6gc4" path="res://Level2/Level2Models/RoadSigns/road_sign.tscn" id="8_meo62"]
+[ext_resource type="PackedScene" uid="uid://die1c4odnw8rb" path="res://commin_formula_solver.tscn" id="9_8o444"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0stx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uht1k"]
+material = SubResource("StandardMaterial3D_r0stx")
+size = Vector2(2000, 2000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjbc3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4mgyg"]
+sky_top_color = Color(0, 0.648612, 0.827291, 1)
+sky_horizon_color = Color(0.941538, 0.961763, 1, 1)
+ground_bottom_color = Color(0.755692, 0.489962, 0.589375, 1)
+ground_horizon_color = Color(0.782073, 0.696411, 0.897344, 1)
+
+[sub_resource type="Sky" id="Sky_iva2u"]
+sky_material = SubResource("ProceduralSkyMaterial_4mgyg")
+
+[sub_resource type="Environment" id="Environment_b53xb"]
+background_mode = 2
+background_color = Color(0.189594, 0.195229, 0.200864, 0.992157)
+sky = SubResource("Sky_iva2u")
+ambient_light_color = Color(0.884517, 0.899485, 0.936389, 1)
+ambient_light_energy = 1.59
+reflected_light_source = 1
+glow_enabled = true
+volumetric_fog_density = 0.0418
+volumetric_fog_albedo = Color(0.54212, 0.969059, 0.922879, 1)
+volumetric_fog_emission_energy = 26.28
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbhk2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xptr"]
+bg_color = Color(0, 0.693564, 0.635019, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2stck"]
+bg_color = Color(0.89779, 0.468184, 0.059087, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hxyh"]
+bg_color = Color(1.34766e-06, 0.656533, 0.862247, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cg03"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g8ll8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rt5ui"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kygok"]
+points = PackedVector3Array(-0.039667, -2.53869, -2.53869, 0.039667, 2.53869, 2.53869, -0.039667, 2.53869, 2.53869, 0.039667, -2.53869, 2.53869, 0.039667, 2.53869, -2.53869, -0.039667, 2.53869, -2.53869, -0.039667, -2.53869, 2.53869, 0.039667, -2.53869, -2.53869)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bdgd"]
+albedo_color = Color(1, 0.921569, 0.129412, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mchde"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4w3l7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k45b3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="Plane" type="MeshInstance3D" parent="Floor"]
+material_override = ExtResource("1_g0ljp")
+mesh = SubResource("PlaneMesh_uht1k")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjbc3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b53xb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 9.807, 0)
+shadow_enabled = true
+
+[node name="Road" type="StaticBody3D" parent="."]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -71.8285, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="Road1" type="CSGBox3D" parent="Road"]
+transform = Transform3D(400, 0, 0, 0, 0.8, 0, 0, 0, 20, 0.000125885, 0.0373874, -4.00543e-05)
+material = ExtResource("2_io2um")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
+transform = Transform3D(400, 0, 0, 0, 0.8, 0, 0, 0, 20, 0, 0.037, 0)
+shape = SubResource("BoxShape3D_kbhk2")
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(-0.994198, 0, -0.107566, 0, 1, 0, 0.107566, 0, -0.994198, 60.4963, 6.26854, -22.1363)
+
+[node name="ProblemInterface" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_4o213")
+
+[node name="MainPanel" type="Control" parent="ProblemInterface"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BtnStart" type="Button" parent="ProblemInterface/MainPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 214.0
+offset_top = 543.0
+offset_right = 357.0
+offset_bottom = 575.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_3xptr")
+text = "Start Simulation"
+
+[node name="LblProblem" type="Label" parent="ProblemInterface/MainPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 41.0
+offset_top = 87.0
+offset_right = 1071.0
+offset_bottom = 236.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "A car is moving at 20 m/s, and a pedestrian suddenly appears 10 meters ahead! 🚶‍♂️
+You must apply the brakes by choosing a Brake Power (BP) level."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Distance" type="Control" parent="ProblemInterface/MainPanel"]
+anchors_preset = 0
+offset_left = 22.0
+offset_right = 62.0
+offset_bottom = 40.0
+
+[node name="LblBreakPower" type="Label" parent="ProblemInterface/MainPanel/Distance"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 544.0
+offset_right = 99.0
+offset_bottom = 574.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BreakPower: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblBreakPowerMetric" type="Label" parent="ProblemInterface/MainPanel/Distance"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 159.0
+offset_top = 544.0
+offset_right = 183.0
+offset_bottom = 574.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BP"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="ProblemInterface/MainPanel/Distance"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 583.0
+offset_right = 172.0
+offset_bottom = 614.0
+item_count = 4
+popup/item_0/text = "10"
+popup/item_1/text = "5"
+popup/item_1/id = 1
+popup/item_2/text = "15"
+popup/item_2/id = 2
+popup/item_3/text = "20"
+popup/item_3/id = 3
+
+[node name="BtnHelp" type="Button" parent="ProblemInterface/MainPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 965.0
+offset_top = 528.0
+offset_right = 1070.0
+offset_bottom = 560.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.960784, 0.756863, 0.25098, 1)
+theme_override_colors/icon_focus_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.941176, 0.882353, 0.733333, 1)
+theme_override_colors/icon_hover_color = Color(0.980392, 0.815686, 0.4, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_2stck")
+text = "Help"
+
+[node name="LblSpeedTag" type="Label" parent="ProblemInterface"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 68.0
+offset_bottom = 54.0
+text = "Speed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblSpeed" type="Label" parent="ProblemInterface/LblSpeedTag"]
+layout_mode = 1
+offset_left = 58.0
+offset_top = -2.0
+offset_right = 123.0
+offset_bottom = 33.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7hxyh")
+text = "0 ms"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="ProblemInterface"]
+visible = false
+layout_mode = 0
+offset_left = 540.0
+offset_top = 366.0
+offset_right = 611.0
+offset_bottom = 397.0
+text = "Re-Start"
+
+[node name="LblSuccess" type="Label" parent="ProblemInterface"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 205.0
+offset_top = 195.0
+offset_right = 916.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.55746, 0.00127277, 0.715919, 1)
+theme_override_font_sizes/font_size = 30
+text = "🎯 Great job! You applied the right braking force."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblFail" type="Label" parent="ProblemInterface"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 290.0
+offset_top = 197.0
+offset_right = 822.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.0196078, 0.0156863, 1)
+theme_override_font_sizes/font_size = 30
+text = "💥 Too fast! You overshot the target."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CrossWalk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.00244, 0, 0, 0, 1.00244, 0, 0, 0, 4.05205, -100.633, 0.190012, 0)
+material_override = SubResource("StandardMaterial3D_4cg03")
+mesh = SubResource("PlaneMesh_g8ll8")
+
+[node name="Car" parent="." instance=ExtResource("5_karuh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -69.0441, 0.453655, -0.00184345)
+mass = 900.0
+script = ExtResource("6_pny53")
+
+[node name="CarCamera" type="Camera3D" parent="Car"]
+transform = Transform3D(-1, -1.42784e-08, 8.62489e-08, 0, 0.986572, 0.163326, -8.74228e-08, 0.163326, -0.986572, 0, 0.875, -1.971)
+
+[node name="Car" type="Area3D" parent="Car"]
+transform = Transform3D(1.77, 0, 0, 0, 1.77, 0, 0, 0, 1.77, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/Car"]
+shape = SubResource("BoxShape3D_rt5ui")
+
+[node name="Area1" type="Area3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -89.0961, 0.404, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area1"]
+shape = SubResource("ConvexPolygonShape3D_kygok")
+
+[node name="Area2" type="Area3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -98.932, 0.404, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area2"]
+shape = SubResource("ConvexPolygonShape3D_kygok")
+
+[node name="Road_sign" parent="." instance=ExtResource("8_meo62")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -90.8352, 0.119382, -6.38201)
+
+[node name="Label3D" type="Label3D" parent="Road_sign"]
+transform = Transform3D(-0.705, 0, 1.06452e-07, 0, 0.705, 0, -1.06452e-07, 0, -0.705, 2.31409, 1.96914, -0.0660172)
+text = "Pedestrian 
+crossing 10m 
+ahead"
+uppercase = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Road_sign/Label3D"]
+transform = Transform3D(0.827315, 0.827315, 2.84217e-14, -0.827315, 0.827315, 0, 0, 0, 1.17, -0.0109258, 0.0568957, -0.0103989)
+material_override = SubResource("StandardMaterial3D_4bdgd")
+mesh = SubResource("QuadMesh_mchde")
+
+[node name="Pedestrian3D" parent="." instance=ExtResource("6_cee65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.665, 0.776825, -3.6763)
+script = ExtResource("7_btdft")
+speed = 1.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pedestrian3D"]
+shape = SubResource("ConvexPolygonShape3D_4w3l7")
+
+[node name="blood_spawn" type="Node3D" parent="Pedestrian3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.578365, 0)
+
+[node name="blood_fx_spawn" type="Node3D" parent="Pedestrian3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21297, 0)
+
+[node name="Area3D" type="Area3D" parent="Pedestrian3D"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Pedestrian3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00339508, 0.417783, -0.00196123)
+shape = SubResource("CapsuleShape3D_k45b3")
+
+[node name="Control" parent="." instance=ExtResource("9_8o444")]
+process_mode = 3
+visible = false
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+
+[node name="BtnReStart" parent="Control" index="1"]
+offset_left = -29.0
+offset_top = -312.0
+offset_right = 76.0
+offset_bottom = -280.0
+
+[node name="LblFail" parent="Control" index="2"]
+offset_left = -262.0
+offset_top = -97.0
+offset_right = 270.0
+offset_bottom = -9.0
+
+[connection signal="pressed" from="ProblemInterface/MainPanel/BtnStart" to="Car" method="_on_btn_start_pressed"]
+[connection signal="pressed" from="ProblemInterface/MainPanel/BtnHelp" to="ProblemInterface" method="_on_btn_help_pressed"]
+[connection signal="pressed" from="ProblemInterface/Restart" to="ProblemInterface" method="_on_restart_pressed"]
+[connection signal="area_entered" from="Car/Car" to="Car" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="Pedestrian3D/Area3D" to="Pedestrian3D" method="_on_area_3d_area_entered"]
+
+[editable path="Control"]

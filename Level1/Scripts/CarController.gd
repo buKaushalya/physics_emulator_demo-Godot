@@ -19,6 +19,7 @@ var distance = 0.0
 @onready var lbl_speed: Label = $"../Control/LblSpeedTag/LblSpeed"
 @onready var txt_distance: TextEdit = $"../Control/MainPanel/Distance/TxtDistance"
 @onready var btn_re_start: Button = $"../Control/BtnReStart"
+@onready var btn_next_level: Button = $"../Control/BtnNextLevel"
 
 @onready var timer: Timer = $"../Timer"
 
@@ -75,6 +76,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			if velocity == 15:
 				lbl_success.visible = true
 				btn_re_start.visible = true
+				btn_next_level.visible = true
 			elif velocity < 15:
 				lbl_fail.text = "You failed to pass the gap!"
 				lbl_fail.visible = true

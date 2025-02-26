@@ -6,7 +6,7 @@ extends Panel
 @onready var txt_a: TextEdit = $FormulaVars/LblA/TxtA
 @onready var txt_v: TextEdit = $FormulaVars/LblV/TxtV
 @onready var option_button: OptionButton = $LblFind/OptionButton
-
+@onready var formula_selection_view = get_node("/root/Node3D/Control/Panel")
 
 var d: float = 0.0
 var u: float = 0.0
@@ -81,6 +81,11 @@ func _on_btn_process_f_3_pressed() -> void:
 		_:
 			print("Invalid option")
 
-			
+	formula_selection_view.call("_check_answer","Formula1",option,result)		
 	print(result)
 	lbl_formula.text = "Value of '" + option + "' = " + str(result) + unit 
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	var option = option_button.get_item_text(index)
+	formula_selection_view.call("check_formula_vars","Formula3",option)

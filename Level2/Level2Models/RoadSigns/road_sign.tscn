@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://nyafhbsd6gc4"]
+
+[ext_resource type="PackedScene" uid="uid://bacrtgkgcydvm" path="res://Level2/Level2Models/RoadSigns/Road_sign.blend" id="1_c5fyl"]
+
+[node name="Road_sign" instance=ExtResource("1_c5fyl")]
+
+[node name="Point" parent="." index="1"]
+visible = false
+
+[node name="Point_001" parent="." index="2"]
+visible = false

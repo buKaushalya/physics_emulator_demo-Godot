@@ -7,6 +7,8 @@ extends Control
 @onready var main_panel: Control = $MainPanel
 @onready var car: RigidBody3D = $"../Car"
 
+@onready var point_system: Panel = $"Panel"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -26,14 +28,15 @@ func _on_btn_close_pressed() -> void:
 	main_panel.visible = true
 
 func _on_btn_fromula_1_pressed() -> void:
+	point_system.call("check_formula", str("Formula1"))
 	panel_f_1.visible = true
 
 func _on_btn_fromula_2_pressed() -> void:
-	print("clicked f2")
+	point_system.call("check_formula", str("Formula2"))
 	panel_f_2.visible = true
 	
 func _on_btn_fromula_3_pressed() -> void:
-	print("clicked f3")
+	point_system.call("check_formula", str("Formula3"))
 	panel_f_3.visible = true
 
 func _on_btn_start_pressed() -> void:
@@ -42,7 +45,9 @@ func _on_btn_start_pressed() -> void:
 
 
 func _on_btn_re_start_pressed() -> void:
+	GameManager.resume_game()
 	get_tree().reload_current_scene()
 
-
-# Replace with function body.
+func _on_btn_next_level_pressed() -> void:
+	Engine.time_scale = 1
+	get_tree().change_scene_to_file("res://level_2.tscn")
